@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<title>学习</title>
+		<meta charset="utf-8" />
+		<!--<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	   	<meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1.0,maximum-scale=1.0">-->
+	    <!-- 上述3个meta标签*必须*放在最前面，任何其他内容都*必须*跟随其后！ -->
+		<!--<meta name="format-detection" content="telephone=no">
+		<meta http-equiv="x-rim-auto-match" content="none">
+		<meta name="apple-touch-fullscreen" content="yes">
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="apple-mobile-web-app-status-bar-style" content="black">
+	    <meta name="description" content="">
+	    <meta name="author" content="">-->
+		<link rel="stylesheet" type="text/css" href="css/jquery.fullPage.css"/>
+		<script src="js/jquery-1.8.3.min.js" type="text/javascript" charset="utf-8"></script>
+		<script src="js/jquery.fullPage.min.js" type="text/javascript" charset="utf-8"></script>
+		<script>
+			$(function(){
+				$('#mainpage').fullpage({
+					sectionsColor: ['#1bbc9b', '#4BBFC3', '#7BAABE', '#f90','#f50'],
+					verticalCentered:false,
+					navigation:false,		
+					anchors: ['page1', 'page2', 'page3', 'page4', 'page5'],
+					menu: '#menu',
+					resize:true,
+				});
+			});
+		</script>
+		<style type="text/css">
+		    body,html,header,section,div,ul,li,div,a,p,h1,h2{ padding:0; margin:0; font-family:"微软雅黑"}
+			li{ list-style:none;}
+			a{ text-decoration:none;}
+		    /*头部*/
+			.header{position: fixed;top:0; left:0;height: 60px;background: #333333;width:100%;z-index: 1;}
+			.header .inner{width: 980px;height: 60px;margin: 0 auto;}
+			.header .inner .logo{margin-top:16px;margin-right: 20px; float: left;}
+			.header .inner nav{float: left;}
+			.header ul li{float: left;}
+			.header ul li a{line-height:60px;display:block; padding:0 20px; color:#fff;}
+			.header li.active a,.header li a:hover{background-color: #f8c808;color: #333333;}			
+			
+			/*第一页
+			 * 单独设置了一张背景图，没有嵌套在div里面，所以不用定义宽高
+			 * 如果嵌在div当中，要定义这个div的宽高为100%
+			 */
+			.section1{background: url(img/s1.jpg) center;}
+			.section1 img
+			{
+				position:absolute;top: 50%;left:50%;
+				margin-left:-545px;margin-top:-230px;
+				opacity: 0;transition: 0.5s;
+				transition-delay: 0.8s;
+			}
+			.section1.active img{opacity: 1;}
+			
+			/* 下面几页布局格式相似
+			 * 采用左、右、背景但部分组合而成
+			 * 内容公共类*/
+			.section{height: 100%;overflow: hidden;}
+			.section .left{position: absolute;left: 5%;top: 50%;margin-top: -200px;z-index: 2;}
+			.section .left li{float: left;margin-right:20px;transition: 0.5s;}
+			.section .left li p{margin: 20px 0;font-size: 18px;color:#333;}
+			.section .left li a{width:98px; height:36px; background:url(img/buy.jpg); display:block;}
+			
+			.section .right{position: absolute;right: 5%;top: 15%;text-align: right;color: #333333;z-index: 3;}
+			.section .right h2{font-size:34px;font-weight: 100;}
+			.section .right p{font-size: 18px;line-height:1.5em;margin-top:20px; margin-bottom:10px;}
+			.section .right a{color:#333;text-decoration: underline;}
+			.section .right a:hover{text-decoration: none;}
+			.section .bg{position: absolute;bottom: 0;right: 0;z-index: 1;}
+			
+			/*第二页*/
+			.section2{background: url(img/s2.jpg) center;}
+			.section2 .left li{-webkit-transform:translateY(1000px);transform: translateY(1000px);}
+			.section2 .left li:nth-child(1){transition-delay: 0.8s;}
+			.section2 .left li:nth-child(2){transition-delay: 1s;}
+			.section2 .left li:nth-child(3){transition-delay: 1.2s;}
+			.section2.active .left li{-webkit-transform:translateY(0);transform: translateY(0);}
+
+			/*第三页*/
+			.section3{background: url(img/s3.jpg);}
+			.section3 .left li{transition-delay: 0.8s;}
+			.section3 .left li:nth-child(1){-webkit-transform: translateX(0);transform: translateX(0);}
+			.section3 .left li:nth-child(2){-webkit-transform: translateX(-279px);transform: translateX(-279px);}
+			.section3 .left li:nth-child(3){-webkit-transform: translateX(-558px);transform: translateX(-558px);}
+			.section3.active .left li{-webkit-transform:translateY(0);transform: translateY(0);}
+			/*第四页*/	
+			@keyframes move1{
+				0%{-webkit-transform: translate(330px,-1000px);transform: translate(330px,-1000px);}
+				20%{-webkit-transform: translate(330px,0);transform: translate(330px,0);}
+				40%{-webkit-transform: translate(330px,-50px);transform: translate(330px,-50px);}
+				60%{-webkit-transform: translate(330px,0);transform: translate(330px,0);}
+				100%{-webkit-transform: translate(0,0);transform: translate(0,0);}
+			}			
+			@keyframes move2{
+				0%{-webkit-transform: translate(0,-1000px);transform: translate(0,-1000px);}
+				20%{-webkit-transform: translate(0,0);transform: translate(0,0);}
+				40%{-webkit-transform: translate(0,-50px);transform: translate(0,-50px);}
+				60%{-webkit-transform: translate(0,0);transform: translate(0,0);}
+				100%{-webkit-transform: translate(0,0);transform: translate(0,0);}
+			}			
+			@keyframes move3{
+				0%{-webkit-transform: translate(-330px,-1000px);transform: translate(-330px,-1000px);}
+				20%{-webkit-transform: translate(-330px,0);transform: translate(-330px,0);}
+				40%{-webkit-transform: translate(-330px,-50px);transform: translate(-330px,-50px);}
+				60%{-webkit-transform: translate(-330px,0);transform: translate(-330px,0);}
+				100%{-webkit-transform: translate(0,0);transform: translate(0,0);}
+			}
+			.section4{background: url(img/s4.jpg);}
+			.section4 .left li:nth-child(1){-webkit-transform: translate(330px,-1000px);transform: translate(330px,-1000px);}
+			.section4.active .left li:nth-child(1){-webkit-animation:move1 2s 0.8s forwards;animation:move1 2s 0.8s forwards;}
+			
+			.section4 .left li:nth-child(2){-webkit-transform: translate(0,-1000px);transform: translate(0,-1000px);}
+			.section4.active .left li:nth-child(2){-webkit-animation:move2 2s 0.8s forwards;animation:move2 2s 0.8s forwards;}
+			
+			.section4 .left li:nth-child(3){-webkit-transform: translate(-330px,-1000px);transform: translate(-330px,-1000px);}
+			.section4.active .left li:nth-child(3){-webkit-animation:move3 2s 0.8s forwards;animation:move3 2s 0.8s forwards;}
+			
+			/*第五页*/
+			.section5{ background:url(img/s5.jpg) center;}
+			.section5 .left li{ -moz-transform:translate3d(-2000px,-2000px,-500px) rotateX(145deg);-webkit-transform:translate3d(-2000px,-2000px,-500px) rotateX(145deg);transform:translate3d(-2000px,-2000px,-500px) rotateX(145deg); }
+			.section5 .left li:nth-child(1){transition-delay:0.8s;}
+			.section5 .left li:nth-child(2){transition-delay:1.2s;}
+			.section5 .left li:nth-child(3){transition-delay:1.6s;}
+			
+			.section5.active .left li{-moz-transform: translate3d(0,0,0) rotateX(0deg);-webkit-transform: translate3d(0,0,0) rotateX(0deg); transform:translate3d(0,0,0px) rotateX(0deg)}
+		</style>
+	</head>
+	<body>
+		<header class="header">
+			<div class="inner">
+				<a href="#" class="logo"><img src="img/logo.png"/></a>
+				<nav>
+					<ul id="menu">
+						<li data-menuanchor="page1" class="active"><a href="#page1">首页</a></li>
+						<li data-menuanchor="page2"><a href="#page2">吉祥物语</a></li>
+						<li data-menuanchor="page3"><a href="#page3">Chow-Lee</a></li>
+						<li data-menuanchor="page4"><a href="#page4">北邦</a></li>
+						<li data-menuanchor="page5"><a href="#page5">赵娜</a></li>
+					</ul>
+				</nav>	
+			</div>				
+		</header>
+		<div id="mainpage">
+			<section class="section section1">						
+				<img src="img/wenzi.png"/>
+			</section>
+			<section class="section section2">
+				<div class="left">
+					<ul>
+						<li>
+							<img src="img/img1.png"/>
+							<p>望<br/>30*40cm / 40*50cm</p>
+                    		<a href="#"></a>                
+						</li>
+						<li>
+							<img src="img/img2.png"/>
+							<p>听<br/>30*40cm / 40*50cm</p>
+                    		<a href="#"></a>                
+						</li>
+						<li>
+							<img src="img/img3.png"/>
+							<p>悟<br/>30*40cm / 40*50cm</p>
+                    		<a href="#"></a>                
+						</li>
+					</ul>
+				</div>
+				<div class="right">
+					<h2>观止</h2>
+					<p>价格：99元起<br />艺术家：吉祥物语</p>
+					<a href="#">站酷主页</a>
+				</div>
+				<div class="bg">
+					<img src="img/sc2.png" />
+				</div>
+			</section>
+			<section class="section section3">
+				<div class="left">
+		        	<ul>
+		            	<li>
+		                	<img src="img/img4.png">
+		                    <p>Love<br/>50*60cm</p>
+		                    <a href="#"></a>                    
+		                </li>
+		                <li>
+		                	<img src="img/img5.png">
+		                    <p>Filial and eros aw<br/>50*60cm</p>
+		                    <a href="#"></a>                    
+		                </li>
+		                <li>
+		                	<img src="img/img6.png">
+		                    <p>Good Time<br/>50*60cm</p>
+		                    <a href="#"></a>                    
+		                </li>
+		            </ul>
+		        </div>
+        
+		        <div class="right">
+		        	<h1>KIDS</h1>
+		            <p>价格：249元<br/>艺术家：Chow-Lee</p>
+					<a href="#">站酷主页</a>
+		        </div>
+		        <div class="bg">
+		        	<img src="img/sc3.png"/>
+		        </div>
+			</section>
+			<section class="section section4">
+				<div class="left">
+		        	<ul>
+		            	<li>
+		                	<img src="img/img7.png">
+		                    <p>绽放2009<br/>60*60cm</p>
+		                    <a href="#"></a>                    
+		                </li>
+		                <li>
+		                	<img src="img/img8.png">
+		                    <p>绽放2010<br/>60*60cm</p>
+		                    <a href="#"></a>                    
+		                </li>
+		                <li>
+		                	<img src="img/img9.png">
+		                    <p>绽放2011<br/>60*60cm</p>
+		                    <a href="#"></a>                    
+		                </li>
+		            </ul>
+		        </div>		        
+		        <div class="right">
+		        	<h1>绽放</h1>
+		            <p>价格：269元<br/>艺术家：北邦</p>
+					<a href="#">站酷主页</a>
+		        </div>		        
+		        <div class="bg">
+		        	<img src="img/sc4.png">
+		        </div>
+			</section>
+			<section class="section section5">
+				<div class="left">
+		        	<ul>
+		            	<li>
+		                	<img src="img/img10.png">
+		                    <p>栖息<br/>50*60cm</p>
+		                    <a href="#"></a>                    
+		                </li>
+		                <li>
+		                	<img src="img/img11.png">
+		                    <p>惊蛰<br/>50*60cm</p>
+		                    <a href="#"></a>                    
+		                </li>
+		                <li>
+		                	<img src="img/img12.png">
+		                    <p>恬静<br/>60*50cm</p>
+		                    <a href="#"></a>                    
+		                </li>
+		            </ul>
+		        </div>		        
+		        <div class="right">
+		        	<h1>沉睡的森林</h1>
+		            <p>价格：249元<br/>艺术家：赵娜</p>
+					<a href="#">站酷主页</a>
+		        </div>		        
+		        <div class="bg"><img src="img/sc5.png"></div>
+			</section>
+		</div>
+	</body>
+</html>
